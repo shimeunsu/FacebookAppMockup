@@ -17,14 +17,100 @@ class LoginVC: UIViewController {
     @IBOutlet weak var leftLineView: UIView!
     @IBOutlet weak var rightLineView: UIView!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var handsImageView: UIImageView!
     
+    //constraint obj
+    @IBOutlet weak var coverImageView_top: NSLayoutConstraint!
+    
+    @IBOutlet weak var whiteIconImageView_y: NSLayoutConstraint!
+    
+    @IBOutlet weak var handsViewImageView_top: NSLayoutConstraint!
+    
+    @IBOutlet weak var registerButton_bottom: NSLayoutConstraint!
+    
+ //cache objects
+     var coverImageView_top_cache: CGFloat!
+    
+     var whiteIconImageView_y_cache: CGFloat!
+    
+     var handsViewImageView_top_cache: CGFloat!
+    
+     var registerButton_bottom_cache: CGFloat!
+    
+    // executed when the screen is loaded
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-
+       super.viewDidLoad()
+        coverImageView_top_cache = coverImageView_top.constant
+        
+        whiteIconImageView_y_cache = whiteIconImageView_y.constant
+        
+        
+        handsViewImageView_top_cache = handsViewImageView_top.constant
+        
+        
+        registerButton_bottom_cache = registerButton_bottom.constant
+        
+    }
+    // executed EVERYTIME wehn vie did appear on the screen
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //declaring notification observation in order to catch UIKeyboardWillShow notification
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    //executed EVERYTIME when view did disappear from teh screen
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //switch off notification center, so it would not bbe in action/ running
+        NotificationCenter.default.removeObserver(self)
+    }
+    //executed alawys when the screen white space is tapped
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(false)
         
     }
     
+    
+    
+    //executed once the keyboard is about to be shown
+    @objc func keyboardWillShow(notification: Notification){
+        //returning all objects to its inital positions
+        
+        coverImageView_top.constant = coverImageView_top_cache
+        handsViewImageView_top.constant = handsViewImageView_top_cache
+        whiteIconImageView_y.constant = whiteIconImageView_y_cache
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
+                registerButton_bottom.constant = registerButton_bottom_cache
+        }
+        
+    
+      //animation function. whatever in the clousres below will be animated
+        UIView.animate(withDuration: 0.5) {
+            self.handsImageView.alpha = 0
+            self.view.layoutIfNeeded()
+        }
+        
+        
+    }
+    //executed once the keyboard is about to be hidden
+    @objc func keyboardWillHide(notification: Notification){
+        coverImageView_top.constant = coverImageView_top_cache
+        handsViewImageView_top.constant = handsViewImageView_top_cache
+        whiteIconImageView_y.constant = whiteIconImageView_y_cache
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
+            registerButton_bottom.constant = registerButton_bottom_cache
+        }
+        //whatever in the clousres belwo will be animated
+        UIView.animate(withDuration: 0.5) {
+            self.handsImageView.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+    }
     //executed after aligning the objects
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5330AB282195EAE0007273CF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5330AB272195EAE0007273CF /* LoginVC.swift */; };
+		53865E6D21B4773600DB1840 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53865E6C21B4773600DB1840 /* RegisterVC.swift */; };
 		538CF8A321820C01001CABD8 /* Cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 538CF8A021820C01001CABD8 /* Cover.png */; };
 		538CF8A421820C01001CABD8 /* WhiteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 538CF8A121820C01001CABD8 /* WhiteIcon.png */; };
 		538CF8A521820C01001CABD8 /* Hands.png in Resources */ = {isa = PBXBuildFile; fileRef = 538CF8A221820C01001CABD8 /* Hands.png */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		5330AB272195EAE0007273CF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		53865E6C21B4773600DB1840 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		538CF8A021820C01001CABD8 /* Cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cover.png; path = "1 Files/Cover.png"; sourceTree = SOURCE_ROOT; };
 		538CF8A121820C01001CABD8 /* WhiteIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WhiteIcon.png; path = "1 Files/WhiteIcon.png"; sourceTree = SOURCE_ROOT; };
 		538CF8A221820C01001CABD8 /* Hands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hands.png; path = "1 Files/Hands.png"; sourceTree = SOURCE_ROOT; };
@@ -69,6 +71,7 @@
 				53978B612177B72A008EE9FF /* Assets.xcassets */,
 				53978B632177B72A008EE9FF /* LaunchScreen.storyboard */,
 				53978B662177B72A008EE9FF /* Info.plist */,
+				53865E6C21B4773600DB1840 /* RegisterVC.swift */,
 			);
 			path = FaceBook;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53865E6D21B4773600DB1840 /* RegisterVC.swift in Sources */,
 				5330AB282195EAE0007273CF /* LoginVC.swift in Sources */,
 				53978B5B2177B729008EE9FF /* AppDelegate.swift in Sources */,
 			);

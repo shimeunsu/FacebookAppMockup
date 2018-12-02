@@ -89,6 +89,9 @@
                                 <state key="normal" title="Register New Account">
                                     <color key="titleColor" red="0.2274509804" green="0.36078431370000003" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="y1b-vs-I0Q" kind="presentation" id="HaC-Ex-1W7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-xe-bdr">
                                 <rect key="frame" x="174.5" y="582" width="25" height="21"/>
@@ -160,16 +163,78 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="coverImageView_top" destination="pdb-0R-42s" id="DYS-ah-0WJ"/>
+                        <outlet property="handsImageView" destination="Qbw-dQ-7Ap" id="LCm-va-VJ8"/>
+                        <outlet property="handsViewImageView_top" destination="Jch-Cn-kUi" id="Whi-h6-TLG"/>
                         <outlet property="leftLineView" destination="6Eb-mM-vML" id="Dl4-O6-HyI"/>
                         <outlet property="loginButton" destination="lyx-Qt-n5g" id="GLM-H5-j5z"/>
                         <outlet property="registerButton" destination="fLq-4u-25b" id="xPG-di-dZD"/>
+                        <outlet property="registerButton_bottom" destination="AwA-DK-I1n" id="7UX-iB-7XR"/>
                         <outlet property="rightLineView" destination="Gxh-hx-PyO" id="Rco-ua-NA5"/>
                         <outlet property="textFieldsView" destination="pQh-SQ-bhX" id="jiB-zb-KmR"/>
+                        <outlet property="whiteIconImageView_y" destination="85N-7P-5SK" id="q6l-Uo-d2w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--RegisterVC-->
+        <scene sceneID="Lch-CX-ocz">
+            <objects>
+                <viewController id="y1b-vs-I0Q" customClass="RegisterVC" customModule="FaceBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Khr-ti-s4T">
+                        <rect key="frame" x="0.0" y="0.0" width="1875" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-Q0-Uyw">
+                                <rect key="frame" x="0.0" y="0.0" width="1875" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9L7-pV-QNp">
+                                        <rect key="frame" x="0.0" y="0.0" width="1875" height="667"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1875" id="oHJ-AV-nwY"/>
+                                            <constraint firstAttribute="height" constant="667" id="q1S-0m-Ij8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9L7-pV-QNp" firstAttribute="top" secondItem="Ibd-Q0-Uyw" secondAttribute="top" id="Afn-uC-tlE"/>
+                                    <constraint firstItem="9L7-pV-QNp" firstAttribute="leading" secondItem="Ibd-Q0-Uyw" secondAttribute="leading" id="RF3-vw-Llw"/>
+                                    <constraint firstAttribute="trailing" secondItem="9L7-pV-QNp" secondAttribute="trailing" id="jmX-ce-xe7"/>
+                                    <constraint firstAttribute="bottom" secondItem="9L7-pV-QNp" secondAttribute="bottom" id="z7G-qn-kdg"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ibd-Q0-Uyw" firstAttribute="trailing" secondItem="pUM-78-QVG" secondAttribute="trailing" id="0oN-53-0bC"/>
+                            <constraint firstItem="Ibd-Q0-Uyw" firstAttribute="bottom" secondItem="pUM-78-QVG" secondAttribute="bottom" id="L1D-yy-9eG"/>
+                            <constraint firstItem="Ibd-Q0-Uyw" firstAttribute="top" secondItem="Khr-ti-s4T" secondAttribute="top" id="TZE-yE-hKm"/>
+                            <constraint firstItem="Ibd-Q0-Uyw" firstAttribute="leading" secondItem="pUM-78-QVG" secondAttribute="leading" id="lZm-p8-q6F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pUM-78-QVG"/>
+                    </view>
+                    <size key="freeformSize" width="1875" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uDG-6r-RxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2314" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mho-AC-Fch">
+            <objects>
+                <viewController id="Ncp-FS-EKY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vZu-hO-Fcn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Aws-Tt-4hV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTC-hM-WG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
