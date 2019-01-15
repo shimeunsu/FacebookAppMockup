@@ -349,7 +349,7 @@ class RegisterVC: UIViewController {
                 if parsedJSON["status"] as! String == "200" {
                     
                     // go to TabBar
-                    print("Registered")
+                      helper.instantiateViewController(identifier: "TabBar", animated: true, by: self, completion: nil) 
                     
                 // Some error occured related to the entered data, like: wrong password, wrong email, etc
                 } else {

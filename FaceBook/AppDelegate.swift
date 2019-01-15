@@ -1,4 +1,4 @@
-, //
+//
 //  AppDelegate.swift
 //  FaceBook
 //
@@ -7,6 +7,8 @@
 //
 
 import UIKit
+//global variable
+var currentUser: NSMutableDictionary?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+       //loading current user. checking is the glob bar that stores current user
+        
+        currentUser = UserDefaults.standard.object(forKey: "currentUser") as? NSMutableDictionary
+    
+        if currentUser?["id"] != nil{
+            // accessing tabbbar cntroller via main storyboard
+          let TabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBar")
+            //assigning tabbbbar as rootviewcontroller of the project
+            window?.rootViewController = TabBar
+        }
+        
         return true
     }
 

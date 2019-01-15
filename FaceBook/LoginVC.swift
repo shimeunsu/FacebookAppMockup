@@ -37,6 +37,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // caching all values of constraints
         coverImageView_top_cache = coverImageView_top.constant
         whiteIconImageView_y_cache = whiteIconImageView_y.constant
@@ -134,7 +135,7 @@ class LoginVC: UIViewController {
     // executed after aligning the objects
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+      
         // calling configure functions to be executed, as they're already declared
         configure_textFieldsView()
         configure_loginBtn()
@@ -299,7 +300,11 @@ class LoginVC: UIViewController {
                 if parsedJSON["status"] as! String == "200" {
                     
                     // go to TabBar
-                    print("Logged")
+                    
+                    helper.instantiateViewController(identifier: "TabBar", animated: true, by: self, completion: nil)
+                    currentUser = parsedJSON.mutableCopy() as? NSMutableDictionary
+                    UserDefaults.standard.set(currentUser, forKey: "currentUser")
+                    UserDefaults.standard.synchronize()
                     
                 // Some error occured related to the entered data, like: wrong password, wrong email, etc
                 } else {
