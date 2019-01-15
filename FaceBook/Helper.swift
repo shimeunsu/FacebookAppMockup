@@ -2,8 +2,8 @@
 //  Helper.swift
 //  FaceBook
 //
-//  Created by Eun Su Shim on 2018-12-05.
-//  Copyright © 2018 Eun Su Shim. All rights reserved.
+//  Created by MacBook Pro on 3/17/18.
+//  Copyright © 2018 MacBook Pro. All rights reserved.
 //
 
 import UIKit
@@ -49,7 +49,22 @@ class Helper {
     }
     
     
-    
+    // allows us to go to another ViewController programmatically
+    func instantiateViewController(identifier: String, animated: Bool, by vc: UIViewController, completion: (() -> Void)?) {
+        
+        // accessing any ViewController from Main.storyboard via ID
+        let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        
+        // presenting accessed ViewController
+        vc.present(newViewController, animated: animated, completion: completion)
+        
+    }
     
     
 }
+
+
+
+
+
+
